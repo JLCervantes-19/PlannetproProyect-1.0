@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open index.jsp",
-            "file": "/Users/macuser/Desktop/PlannetproProyect ver 1.2/src/main/webapp/index.jsp"
+            "name": "Open index.html",
+            "file": "/Users/macuser/Desktop/PlannetproProyect ver 1.2/src/main/webapp/index.html"
         }
     ]
 }

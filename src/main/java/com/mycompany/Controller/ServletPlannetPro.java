@@ -4,10 +4,6 @@
  */
 package com.mycompany.Controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import static java.lang.System.out;
 import java.sql.Connection;
@@ -17,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
@@ -25,6 +22,11 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 
 
@@ -63,52 +65,12 @@ public class ServletPlannetPro extends HttpServlet {
 
     return newID;
 }
-
-private boolean usuarioRegistrado(String Correo) throws SQLException {
-        ConexionBD conn = new ConexionBD();
-    Connection connection = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        boolean registrado = false;
-   
-        try (Connection con = conn.getConnection()){
-            // Establecer conexión con la base de datos (asegúrate de tener las credenciales y la URL de la base de datos correctas)
-            
-            // Consulta SQL para verificar si el usuario ya está registrado
-            String sql = "SELECT COUNT(*) AS total FROM USUARIO WHERE CORREO = ?";
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, Correo);
-            resultSet = statement.executeQuery();
-            
-            // Verificar si se encontraron resultados
-            if (resultSet.next()) {
-                int total = resultSet.getInt("total");
-                if (total > 0) {
-                    registrado = true; // El usuario ya está registrado
-                }
-            }
-        } finally {
-            // Cerrar la conexión y liberar recursos
-            if (resultSet != null) {
-                resultSet.close();
-            }
-            if (statement != null) {
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        }
-        
-        return registrado;
-    }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
      
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
