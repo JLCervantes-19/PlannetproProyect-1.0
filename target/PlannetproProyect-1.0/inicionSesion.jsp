@@ -57,9 +57,9 @@
 								<div class="mb-3">
 									<div class="mb-2 w-100">
 										<label class="text-muted" for="password">Contraseña</label>
-										<a href="forgot.html" class="float-end">
+<!--										<a href="forgot.html" class="float-end">
 											¿Olvidaste tu contraseña?
-										</a>
+										</a>-->
 									</div>
 									<input id="password" type="password" class="form-control" name="password" required>
 								    <div class="invalid-feedback">
@@ -72,7 +72,7 @@
 									
 									</div>
 									<button type="submit" class="btn btn-primary ms-auto" name="accion" value="ingresar">
-										Login
+										Inicia Sesion
 									</button>
 								</div>
                                     <div id="alertNO" class="alert alert-danger" role="alert" style="display: none;">Complete los datos</div>

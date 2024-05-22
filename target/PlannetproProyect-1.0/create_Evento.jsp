@@ -30,16 +30,15 @@
         String[] productos = productosSeleccionados.split(",");
 
         // Itera sobre el array de productos y realiza las acciones necesarias con cada producto
-        out.println("<h1>Productos Seleccionados:</h1>");
-        out.println("<ul>");
+        
         for (String producto : productos) {
-            out.println("<li>" + producto + "</li>");
+            
             // Aquí puedes realizar cualquier acción adicional con cada producto,
             // como guardar en la base de datos, procesar la información, etc.
         }
         out.println("</ul>");
     } else {
-        out.println("<h1>No se han seleccionado productos.</h1>");
+       
     }
 %>
    

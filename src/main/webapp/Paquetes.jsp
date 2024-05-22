@@ -25,7 +25,14 @@
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     
 </head>
-
+<style>
+    .dropdown-menu {
+    right: 0; /* Alinear el panel emergente con el borde derecho */
+    left: auto; /* Reiniciar el ajuste izquierdo */
+    max-width: 400px; /* Opcional: establecer un ancho máximo */
+    overflow: hidden; /* Opcional: ocultar el contenido que se desborde */
+}
+</style>
 <body>
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -51,95 +58,102 @@
 
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                PlannetPro
-            </a>
-<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.jsp">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Galeria.jsp">Galeria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ProductosList.jsp">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
-                        </li> 
-                        
-                    </ul>
+       <div class="container d-flex justify-content-between align-items-center" style="width :100%">
+            
+            <div class="row flex-grow-1">
+                <div class="col-12 col-lg-3">
+                    <a class="navbar-brand text-success logo h1 align-self-center" href="index.jsp">
+                    PlannetPro
+                    </a> 
                 </div>
-                 <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
-   <div class="btn-group">
-  <div class="dropdown">
-      <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
-        Cerrar Sesión
-      </button>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#"><%= Correo %></a>
-        <a class="dropdown-item" href="#"></a>
-           <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="index.html">Cerrar Sesion</a>
-      </div>
-    </div>
-</div>
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("navbarDropdown").addEventListener("click", function(event) {
-      if (event.target.classList.contains("dropdown-toggle")) {
-        var dropdownMenu = event.target.nextElementSibling;
-        dropdownMenu.classList.toggle("show");
-      }
-    });
+                <div class="col-12 col-lg-8 mt-lg-3">
+                    <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                        <div class="flex-fill">
+                            <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto ms-left">
+                                <li class="nav-item ms-left">
+                                    <a class="nav-link" href="index.jsp">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
+                                </li>
+                                        <li class="nav-item">
+                                    <a class="nav-link" href="Galeria.jsp">Galeria</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ProductosList.jsp">Productos</a>
+                                </li>
+                               <li class="nav-item">
+                                    <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
+                                </li> 
+                               
+                              </ul>
+                            <p>
+                                
+                            </p> 
+                        </div>
+                        
 
-    // Cerrar la lista desplegable cuando se hace clic fuera de ella
-    window.addEventListener("click", function(event) {
-      if (!event.target.matches(".dropdown-toggle")) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.remove("show");
-          }
-        }
-      }
-    });
-  });
-</script>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
+                            <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
+                            
+                        
+                    </div>  
+                </div>
+                <div class="d-flex col-12 col-lg-1  justify-content-between">
+                    
+                    <button class=" navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="mt-0 mt-lg-3">
+                        <div class="dropdown">
+                          <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" >
+                            Cerrar Sesión
+                          </button>
+
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"><%= Correo %></a>
+                            <a class="dropdown-item" href="#"></a>
+                               <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="AlertCierre.jsp">Cerrar Sesion</a>
+                          </div>
                         </div>
                     </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                       
-                    </a>
-                      <!-- <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                    </a> --> 
-                </div>
-            </div>
+                    <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("navbarDropdown").addEventListener("click", function(event) {
+                  if (event.target.classList.contains("dropdown-toggle")) {
+                    var dropdownMenu = event.target.nextElementSibling;
+                    dropdownMenu.classList.toggle("show");
+                  }
+                });
 
+                // Cerrar la lista desplegable cuando se hace clic fuera de ella
+                window.addEventListener("click", function(event) {
+                  if (!event.target.matches(".dropdown-toggle")) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                      var openDropdown = dropdowns[i];
+                      if (openDropdown.classList.contains("show")) {
+                        openDropdown.classList.remove("show");
+                      }
+                    }
+                  }
+                });
+              });
+            </script>
+                </div>
+                
+                              
+                
+                
+            
+           
+                
+                               
+            </div>
+  
+            
+            
         </div>
     </nav>
     <!-- Close Header -->
@@ -174,7 +188,7 @@
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/img/about-hero.svg" alt="About Hero">
+                    <img src="assets/img/ilustracion-blanco-negro-joven-dj-tocando-tocadiscos_1057-105385-removebg-preview.png" style="width: 270px; margin-left: 133px;" alt="About Hero">
                 </div>
             </div>
         </div>
@@ -199,55 +213,51 @@
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <!-- Links -->
-                         <a href="">
+                         <a href="paqbasic.jsp">
                             <img src="./assets/img/2.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
                              
                            </ul>
-                            <h1> $00.000</h1>
+                            
                             <!-- Links -->
-                            <a href="" class="h2 text-decoration-none text-dark">DJ's</a>
-                            <p class="card-text">
-Mi nombre es DJx y estoy emocionado de estar aquí hoy para compartir mi pasión por la música con ustedes. Como DJ, mi objetivo es crear experiencias inolvidables a través de la música, llevando a la audiencia en un viaje sonoro que los haga bailar, cantar y disfrutar al máximo.                            </p>
-                            <p class="text-muted">Reviews (24)</p>
+                            <a href="paqbasic.jsp" class="h2 text-decoration-none text-dark">Paquete Basic</a>
+                        <p class="card-text">Si estás buscando una solución accesible que cubra todas tus necesidades básicas, nuestro Paquete Basic es perfecto para ti. Diseñado para quienes desean obtener un excelente servicio sin romper el banco, este paquete incluye todas las características esenciales para que disfrutes de nuestros servicios de inmediato a un precio inmejorable.</p>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="">
+                        <a href="paqmax.jsp">
                             <img src="./assets/img/3.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
                               
                            </ul>
-                            <h1> $00.000</h1>
-                            <a href="" class="h2 text-decoration-none text-dark">Orquestas</a>
-                            <p class="card-text">
-Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de músicos apasionados y dedicados que nos esforzamos por llevar la belleza y la emoción de la música clásica a audiencias de todas las edades y orígenes.                            </p>
-                            <p class="text-muted">Reviews (48)</p>
+                           
+                            <a href="paqmax.jsp" class="h2 text-decoration-none text-dark">Paquete Max</a>
+                        <p class="card-text">Nuestro Paquete Max es ideal para aquellos que buscan un equilibrio perfecto entre funcionalidad y costo. Incluye todas las ventajas del Paquete Basic, además de características adicionales que optimizarán tu experiencia. Con el Paquete Max, disfrutarás de mejoras significativas que te permitirán maximizar el valor de nuestros servicios.</p>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="">
+                        <a href="paqgold.jsp">
                             <img src="./assets/img/Plannet_packca.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
                                
                            </ul>
-                            <h1> $00.000</h1>
+                            
                            
-                            <a href="" class="h2 text-decoration-none text-dark">Entretenimiento</a>
-                            <p class="card-text">
-                                un equipo de bailarines apasionados y dedicados que amamos compartir nuestra pasión por el baile con el mundo. 
-                            </p>
-                            <p class="text-muted">Reviews (74)</p>
+                            <a href="paqgold.jsp" class="h2 text-decoration-none text-dark">Paquete Gold </a>
+                            <p class="card-text">Para quienes no se conforman con nada menos que lo mejor, nuestro Paquete Gold ofrece una experiencia premium sin igual. Este paquete está diseñado para brindar lo último en lujo y rendimiento, incorporando todas las características del Paquete Max y mucho más. .</p>
+                           
                         </div>
                     </div>
                 </div>
@@ -261,11 +271,7 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de 
         <div class="container my-4">
             <div class="row text-center py-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Our Brands</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
-                    </p>
+                    
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
@@ -375,11 +381,11 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de 
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            <a class="text-decoration-none" href="tel:010-020-0340">+57-320 5040411</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            <a class="text-decoration-none" href="mailto:info@company.com">plannetproproyect@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -446,7 +452,7 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de 
                     <div class="col-12">
                         <p class="text-left text-light">
                             Copyright &copy; 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com/page/1" target="_blank">PlannetPro</a>
+                            | Designed by <a rel="sponsored" href="https://templatemo.com/page/1" target="_blank">PlannetProTeam</a>
                         </p>
                     </div>
                 </div>

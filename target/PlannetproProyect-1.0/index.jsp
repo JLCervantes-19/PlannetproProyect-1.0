@@ -26,7 +26,14 @@
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
 </head>
-
+<style>
+    .dropdown-menu {
+    right: 0; /* Alinear el panel emergente con el borde derecho */
+    left: auto; /* Reiniciar el ajuste izquierdo */
+    max-width: 400px; /* Opcional: establecer un ancho máximo */
+    overflow: hidden; /* Opcional: ocultar el contenido que se desborde */
+}
+</style>
 <body>
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -52,93 +59,127 @@
 
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow me-auto">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.jsp">
-                PlannetPro
-            </a>
-             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-                
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto ms-left">
-                        <li class="nav-item ms-left">
-                            <a class="nav-link" href="index.jsp">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
-                        </li>
+       <div class="container d-flex justify-content-between align-items-center" style="width :100%">
+            
+            <div class="row flex-grow-1">
+                <div class="col-12 col-lg-3">
+                    <a class="navbar-brand text-success logo h1 align-self-center" href="index.jsp">
+                    PlannetPro
+                    </a> 
+                </div>
+                <div class="col-12 col-lg-8 mt-lg-3">
+                    <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                        <div class="flex-fill">
+                            <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto ms-left">
+                                <li class="nav-item ms-left">
+                                    <a class="nav-link" href="index.jsp">Inicio</a>
+                                </li>
                                 <li class="nav-item">
-                            <a class="nav-link" href="Galeria.jsp">Galeria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ProductosList.jsp">Productos</a>
-                        </li>
-                       <li class="nav-item">
-                            <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
-                        </li> 
+                                    <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
+                                </li>
+                                        <li class="nav-item">
+                                    <a class="nav-link" href="Galeria.jsp">Galeria</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ProductosList.jsp">Productos</a>
+                                </li>
+                               <li class="nav-item">
+                                    <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
+                                </li> 
+                              </ul>
+                            <p></p> 
+                        </div>
+
+                            <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
+                            <% String idString = (String) request.getSession().getAttribute("ID"); %>
                         
-                           </ul>
-                </div> 
-                <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
-                <% String idString = (String) request.getSession().getAttribute("ID"); %>
- <div class="btn-group">
-  <div class="dropdown">
-      <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
-        Cerrar Sesión
-      </button>
-      
-      <%
-    
-          %>
-      
-      
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#"><%= Correo %></a>
-        <a class="dropdown-item" href="#"><%= idString %></a>
-           <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="index.html">Cerrar Sesion</a>
-      </div>
-    </div>
-</div>
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("navbarDropdown").addEventListener("click", function(event) {
-      if (event.target.classList.contains("dropdown-toggle")) {
-        var dropdownMenu = event.target.nextElementSibling;
-        dropdownMenu.classList.toggle("show");
-      }
-    });
-
-    // Cerrar la lista desplegable cuando se hace clic fuera de ella
-    window.addEventListener("click", function(event) {
-      if (!event.target.matches(".dropdown-toggle")) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.remove("show");
-          }
-        }
-      }
-    });
-  });
-</script>
-
-               
+                    </div>  
                 </div>
-                <div class="navbar align-self-center d-flex">
+                <div class="d-flex col-12 col-lg-1  justify-content-between">
                     
+                    <button class=" navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="mt-0 mt-lg-3">
+                        <div class="dropdown">
+                          <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" >
+                            Cerrar Sesión
+                          </button>
 
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                       
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                    </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"><%= Correo %></a>
+                            <a class="dropdown-item" href="#"></a>
+                               <div class="dropdown-divider"></div>
+                            <a id="logout-btn" class="dropdown-item" href="AlertCierre.jsp">Cerrar Sesión</a>
+
+                          </div>
+                        </div>
+                    </div>
+                            <script>
+            document.getElementById('logout-btn').addEventListener('click', function(event) {
+        // Prevenir comportamiento por defecto del enlace
+            event.preventDefault();
+
+    // Borrar datos de sesión (puede variar según tu implementación)
+            sessionStorage.clear();
+            localStorage.clear();
+
+        // Redirigir a la página de inicio de sesión
+    window.location.href = 'AlertCierre.jsp';
+});
+
+// Deshabilitar el almacenamiento en caché para evitar que se pueda regresar a la página anterior
+window.addEventListener('load', function() {
+    // No almacenar en caché
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function() {
+        window.history.go(0);
+    };
+});
+
+              document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("navbarDropdown").addEventListener("click", function(event) {
+                  if (event.target.classList.contains("dropdown-toggle")) {
+                    var dropdownMenu = event.target.nextElementSibling;
+                    dropdownMenu.classList.toggle("show");
+                  }
+                });
+
+                // Cerrar la lista desplegable cuando se hace clic fuera de ella
+                window.addEventListener("click", function(event) {
+                  if (!event.target.matches(".dropdown-toggle")) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                      var openDropdown = dropdowns[i];
+                      if (openDropdown.classList.contains("show")) {
+                        openDropdown.classList.remove("show");
+                      }
+                    }
+                  }
+                });
+              });
+            </script>
                 </div>
+                
+                              
+                
+                
+            
+           
+                
+                               
             </div>
-
+  
+            
+            
         </div>
     </nav>
     <!-- Close Header -->
@@ -164,7 +205,7 @@
 
     <!-- Start Banner Hero -->
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
+        <ol class="carousel-indicators align-items-end">
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
@@ -220,7 +261,7 @@ En PlannetPro, nos enorgullece ofrecer una amplia gama de servicios que incluyen
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/Banda-Musico_1.jpg" alt="">
+                            <img class="img-fluid" src="./assets/img/WhatsApp Image 2024-05-20 at 18.47.25.jpeg" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
@@ -309,10 +350,11 @@ En PlannetPro, nos enorgullece ofrecer una amplia gama de servicios que incluyen
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <!-- Links -->
-                         <a href="">
+                         
                             <img src="./assets/img/Djs.png" class="card-img-top" alt="...">
-                        </a>
+                        
                         <div class="card-body">
+                            <!-- commetn
                             <ul class="list-unstyled d-flex justify-content-between">
                                 <li>
                                     <i class="text-warning fa fa-star"></i>
@@ -323,20 +365,22 @@ En PlannetPro, nos enorgullece ofrecer una amplia gama de servicios que incluyen
                                 </li>
                                 <li class="text-muted text-right">$00.000</li>
                             </ul>
+                            -->
                             <!-- Links -->
                             <a href="" class="h2 text-decoration-none text-dark">DJ's</a>
                             <p class="card-text">
 Mi nombre es DJx y estoy emocionado de estar aquí hoy para compartir mi pasión por la música con ustedes. Como DJ, mi objetivo es crear experiencias inolvidables a través de la música, llevando a la audiencia en un viaje sonoro que los haga bailar, cantar y disfrutar al máximo.                            </p>
-                            <p class="text-muted">Reviews (24)</p>
+                            <!--<p class="text-muted">Reviews (24)</p>-->
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="">
+                        
                             <img src="./assets/img/Bandas.png" class="card-img-top" alt="...">
-                        </a>
+                        
                         <div class="card-body">
+                            <!--
                             <ul class="list-unstyled d-flex justify-content-between">
                                 <li>
                                     <i class="text-warning fa fa-star"></i>
@@ -347,19 +391,21 @@ Mi nombre es DJx y estoy emocionado de estar aquí hoy para compartir mi pasión p
                                 </li>
                                 <li class="text-muted text-right">$000.00</li>
                             </ul>
+                            -->
                             <a href="" class="h2 text-decoration-none text-dark">Orquestas</a>
                             <p class="card-text">
 Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de músicos apasionados y dedicados que nos esforzamos por llevar la belleza y la emoción de la música clásica a audiencias de todas las edades y orígenes.                            </p>
-                            <p class="text-muted">Reviews (48)</p>
+                            <!--<p class="text-muted">Reviews (48)</p>-->
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="">
+                        
                             <img src="./assets/img/Entreteni.png" class="card-img-top" alt="...">
-                        </a>
+                        
                         <div class="card-body">
+                            <!--
                             <ul class="list-unstyled d-flex justify-content-between">
                                 <li>
                                     <i class="text-warning fa fa-star"></i>
@@ -370,11 +416,12 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de m
                                 </li>
                                 <li class="text-muted text-right">$00.00</li>
                             </ul>
+                            -->
                             <a href="" class="h2 text-decoration-none text-dark">Entretenimiento</a>
                             <p class="card-text">
                                 un equipo de bailarines apasionados y dedicados que amamos compartir nuestra pasión por el baile con el mundo. 
                             </p>
-                            <p class="text-muted">Reviews (74)</p>
+                            <!--<p class="text-muted">Reviews (74)</p>-->
                         </div>
                     </div>
                 </div>
@@ -385,7 +432,7 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de m
 
 
     <!-- Start Footer -->
-    <footer class="bg-dark" id="tempaltemo_footer">
+ <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
 
@@ -394,19 +441,18 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de m
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
-                            123 Consectetur at ligula 10660
+                            
                         </li>
                         <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            <a class="text-decoration-none" href="plannetproproyect@gmail.com">plannetproproyect@gmail.com</a>
                         </li>
                     </ul>
                 </div>
-                <!-- <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+               <!--  <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li><a class="text-decoration-none" href="#">Luxury</a></li>
                         <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
@@ -429,7 +475,8 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de m
                     </ul>
                 </div>
 
-            </div>
+            </div> 
+               
 
             <div class="row text-light mb-4">
                 <div class="col-12 mb-3">
@@ -438,7 +485,7 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de m
                 <div class="col-auto me-auto">
                     <ul class="list-inline text-left footer-icons">
                         <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                            <a rel="nofollow" class="text-light text-decoration-none" target="_blank" href="http://fb.com/templatemo"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                         </li>
                         <li class="list-inline-item border border-light rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
@@ -458,7 +505,7 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de m
                         <div class="input-group-text btn-success text-light">Subscribe</div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <div class="w-100 bg-black py-3">
@@ -466,14 +513,12 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de m
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2021 Company Name 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+                            Copyright &copy; 
+                            | Designed by <a rel="sponsored" href="https://templatemo.com/page/1" target="_blank">PlannetProTeam</a>
                         </p>
                     </div>
                 </div>
-            </div> -->
-                <div class="col-md-4 pt-5">
-                    
+            </div>
         </div>
 
     </footer>

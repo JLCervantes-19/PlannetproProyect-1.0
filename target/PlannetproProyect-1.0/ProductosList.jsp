@@ -28,6 +28,14 @@
         <link rel="stylesheet" href="styles.css">
 </head>
 <style>
+    .dropdown-menu {
+    right: 0; /* Alinear el panel emergente con el borde derecho */
+    left: auto; /* Reiniciar el ajuste izquierdo */
+    max-width: 400px; /* Opcional: establecer un ancho máximo */
+    overflow: hidden; /* Opcional: ocultar el contenido que se desborde */
+}
+</style>
+<style>
     /* styles.css */
 body {
     font-family: Arial, sans-serif;
@@ -216,92 +224,98 @@ button:hover {
 
 
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow me-auto">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.jsp" style="position: relative; margin-left: -100px;">
-                PlannetPro
-            </a>
-             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-                
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto ms-left">
-                        <li class="nav-item ms-left">
-                            <a class="nav-link" href="index.jsp">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
-                        </li>
-                                <li class="nav-item">
-                            <a class="nav-link" href="Galeria.jsp">Galeria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ProductosList.jsp">Productos</a>
-                        </li>
-                       <li class="nav-item">
-                            <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
-                        </li> 
-                      </ul>
-                </div> 
-                <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
-                <% String idString = (String) request.getSession().getAttribute("ID"); %>
- <div class="btn-group">
-  <div class="dropdown">
-      <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" style="position: fixed; margin-top: -16px; margin-left: 10px;">
-        Cerrar Sesión
-      </button>
-      
-      <%
-    
-          %>
-      
-      
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#"><%= Correo %></a>
-        <a class="dropdown-item" href="#"><%= idString %></a>
-           <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="index.html">Cerrar Sesion</a>
-      </div>
-    </div>
-</div>
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("navbarDropdown").addEventListener("click", function(event) {
-      if (event.target.classList.contains("dropdown-toggle")) {
-        var dropdownMenu = event.target.nextElementSibling;
-        dropdownMenu.classList.toggle("show");
-      }
-    });
-
-    // Cerrar la lista desplegable cuando se hace clic fuera de ella
-    window.addEventListener("click", function(event) {
-      if (!event.target.matches(".dropdown-toggle")) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.remove("show");
-          }
-        }
-      }
-    });
-  });
-</script>
-  </div>
-                <div class="navbar align-self-center d-flex">
-                    
-
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                       
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                    </a>
+    <nav class="navbar navbar-expand-lg navbar-light shadow ">
+        <div class="container d-flex justify-content-between align-items-center" style="width :100%">
+            
+            <div class="row flex-grow-1">
+                <div class="col-12 col-lg-3">
+                    <a class="navbar-brand text-success logo h1 align-self-center" href="index.jsp">
+                    PlannetPro
+                    </a> 
                 </div>
-            </div>
+                <div class="col-12 col-lg-8 mt-lg-3">
+                    <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                        <div class="flex-fill">
+                            <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto ms-left">
+                                <li class="nav-item ms-left">
+                                    <a class="nav-link" href="index.jsp">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
+                                </li>
+                                        <li class="nav-item">
+                                    <a class="nav-link" href="Galeria.jsp">Galeria</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ProductosList.jsp">Productos</a>
+                                </li>
+                               <li class="nav-item">
+                                    <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
+                                </li> 
+                              </ul>
+                            <p>
+                                
+                            </p>
+                        </div>
 
+                            <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
+                            <% String idString = (String) request.getSession().getAttribute("ID"); %>
+                        
+                    </div>  
+                </div>
+                <div class="d-flex col-12 col-lg-1  justify-content-between">
+                    
+                    <button class=" navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div>
+                        <div class="dropdown">
+                          <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" >
+                            Cerrar Sesión
+                          </button>
+
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"><%= Correo %></a>
+                            <a class="dropdown-item" href="#"></a>
+                               <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="AlertCierre.jsp">Cerrar Sesion</a>
+                          </div>
+                        </div>
+                    </div>
+                    <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("navbarDropdown").addEventListener("click", function(event) {
+                  if (event.target.classList.contains("dropdown-toggle")) {
+                    var dropdownMenu = event.target.nextElementSibling;
+                    dropdownMenu.classList.toggle("show");
+                  }
+                });
+
+                // Cerrar la lista desplegable cuando se hace clic fuera de ella
+                window.addEventListener("click", function(event) {
+                  if (!event.target.matches(".dropdown-toggle")) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                      var openDropdown = dropdowns[i];
+                      if (openDropdown.classList.contains("show")) {
+                        openDropdown.classList.remove("show");
+                      }
+                    }
+                  }
+                });
+              });
+            </script>
+                </div>
+                
+                   
+            </div>
+  
+            
+            
         </div>
+
+        
     </nav>
     <!-- Close Header -->
 
@@ -324,100 +338,144 @@ button:hover {
     
 
 
-
+    <br>
+    <br>
     <div class="container">
+        
         <form id="productForm" style="margin-top: 100px;">
-            <div class="card">
-                <input type="checkbox" id="product1" name="products" value="Producto 1">
+        <div class="row ">  
+            <center>
+            <h1>¡Organiza la Fiesta!</h1>
+            <h3>Escoge tus productos y Personaliza tu Evento</h3>
+        </center>
+            <p>
+            </p>
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                <input type="checkbox" id="product1" name="products" value="Mini Par LED UV NightSun SPC094">
                 <label for="product1">
                     <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 1">
-                        <h3>Producto 1</h3>
-                        <p>Descripción del Producto 1</p>
+                        <img src="./assets/img/miniled uv.png"  alt="Producto 1">
+                        <h3>Mini Par LED UV NightSun SPC094</h3>
+                        <p>El SPC094 es par LED de formato pequeño dotado de 12 LED UV de 1W, es ideal para hacer efectos con la luz EV que emite.Este par LED es comprado con frecuencia para iluminar tarimas, pistas de baile de discotecas y para ambientar bares.</p>
                     </div>
                 </label>
             </div>
-            <div class="card">
-                <input type="checkbox" id="product2" name="products" value="Producto 2">
+            </div>
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                <input type="checkbox" id="product2" name="products" value="Luz  NightSun SPC089">
                 <label for="product2">
                     <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 2">
-                        <h3>Producto 2</h3>
-                        <p>Descripción del Producto 2</p>
+                        <img src="./assets/img/NightSun_SPC089.png" alt="Producto 2">
+                        <h3>Luz  NightSun SPC089</h3>
+                        <p>Una luz dinámica y perfecta
+Una luz para espacios como bares, discotecas y eventos en casa, dándole un toque especial en cada espacio que lo pongas.</p>
                     </div>
                 </label>
             </div>
-            <div class="card">
-                <input type="checkbox" id="product3" name="products" value="Producto 3">
-                <label for="product3">
-                    <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 3">
-                        <h3>Producto 3</h3>
-                        <p>Descripción del Producto 3</p>
-                    </div>
-                </label>
             </div>
-            <div class="card">
-                <input type="checkbox" id="product4" name="products" value="Producto 4">
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                    <input type="checkbox" id="product3" name="products" value="Par LED NightSun SPC057i">
+                    <label for="product3">
+                        <div class="card-content">
+                            <img src="./assets/img/LED PAR SPC057I NigthSun.png" alt="Producto 3">
+                            <h3>Par LED NightSun SPC057i</h3>
+                            <p>El SPC057i esta construido en una rígida carcasa de aluminio y ABS, lo que hace a esta luz ideal para ser usada por empresas de producción de eventos. </p>
+                        </div>
+                    </label>
+                </div>  
+            </div>
+            
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                <input type="checkbox" id="product4" name="products" value="Cabeza Móvil 100w NightSun SPB423">
                 <label for="product4">
                     <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 4">
-                        <h3>Producto 4</h3>
-                        <p>Descripción del Producto 4</p>
+                        <img src="./assets/img/Cabeza movil NightSunspb423.png" alt="Producto 4">
+                        <h3>Cabeza Móvil 100w NightSun SPB423</h3>
+                        <p>Cabeza móvil de formato pequeño
+La cabeza móvil SPB423 cuenta con 6 LED de 15W RGBW 4 en 1, esta característica permite proyectar una gama casi infinita de colores, lo que es ideal para crear escenas luminosas con altos estándares.</p>
                     </div>
                 </label>
             </div>
-            <div class="card">
-                <input type="checkbox" id="product5" name="products" value="Producto 5">
+            </div>
+            
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                <input type="checkbox" id="product5" name="products" value="Reloop Buddy Controlador DJ">
                 <label for="product5">
                     <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 5">
-                        <h3>Producto 5</h3>
-                        <p>Descripción del Producto 5</p>
+                        <img src="./assets/img/Reloop_controladora.png" alt="Producto 5">
+                        <h3>Reloop Buddy Controlador DJ</h3>
+                        <p>Tanto si eres un principiante como si eres un DJ experimentado, Reloop Buddy te ofrece un control total sobre tus mezclas gracias a sus potentes funciones, incluida la sección de pad intuitiva que consta de 8 modos de actuación </p>
                     </div>
                 </label>
             </div>
-            <div class="card">
-                <input type="checkbox" id="product6" name="products" value="Producto 6">
+            </div>
+            
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                <input type="checkbox" id="product6" name="products" value="Controladora Dj DDJ-200">
                 <label for="product6">
                     <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 6">
-                        <h3>Producto 6</h3>
-                        <p>Descripción del Producto 6</p>
+                        <img src="./assets/img/ddj-200-controladora.png" alt="Producto 6">
+                        <h3>Controladora Dj DDJ-200</h3>
+                        <p>Iníciate como DJ con el DDJ-200, nuestro controlador DJ inteligente de fácil uso. Ligero y compacto con un diseño de estilo profesional, te ayudará a aprender a mezclar </p>
                     </div>
                 </label>
             </div>
-            <div class="card">
-                <input type="checkbox" id="product7" name="products" value="Producto 7">
+            </div>
+            
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                <input type="checkbox" id="product7" name="products" value="Reloop Ready Controlador Dj">
                 <label for="product7">
                     <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 7">
-                        <h3>Producto 7</h3>
-                        <p>Descripción del Producto 7</p>
+                        <img src="./assets/img/Reloop-Ready-Controlador-Dj.png" alt="Producto 7">
+                        <h3>Reloop Ready Controlador Dj</h3>
+                        <p>Tan ligero como potente, tan compacto como versátil: el Reloop Ready equilibra la funcionalidad de primer nivel en un diseño práctico para que los DJs se desempeñen al más alto nivel mientras maximizan la portabilidad y minimizan el espacio.</p>
                     </div>
                 </label>
             </div>
-            <div class="card">
-                <input type="checkbox" id="product8" name="products" value="Producto 8">
+            </div>  
+            
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                <input type="checkbox" id="product8" name="products" value="BETA THREE VX12a CABINA">
                 <label for="product8">
                     <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 8">
-                        <h3>Producto 8</h3>
-                        <p>Descripción del Producto 8</p>
+                        <img src="./assets/img/BETA-THREE-Cabina.jpg" alt="Producto 8">
+                        <h3>BETA THREE VX12a CABINA</h3>
+                        <p>VX12a es un altavoz activo de rango completo de dos vías compuesto por un woofer LF de 12″ y un controlador de compresión HF de 1″ con diafragma de titanio. Sus características incluyen gran dinámica, alta sensibilidad, claro MF y HF con potente LF.</p>
                     </div>
                 </label>
             </div>
-            <div class="card">
-                <input type="checkbox" id="product9" name="products" value="Producto 9">
+            </div>    
+                                
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card d-inline-block" style="width: 18rem;">
+                <input type="checkbox" id="product9" name="products" value="Base Luces CHAUVET CH-01">
                 <label for="product9">
                     <div class="card-content">
-                        <img src="https://via.placeholder.com/150" alt="Producto 9">
-                        <h3>Producto 9</h3>
-                        <p>Descripción del Producto 9</p>
+                        <img src="./assets/img/base-luces-chauvet-ch-01.jpg" alt="Producto 9">
+                        <h3>Base Luces CHAUVET CH-01</h3>
+                        <p>Base para luces de trabajo.</p>
                     </div>
                 </label>
             </div>
-            <button type="submit">Enviar</button>
+            </div>  
+                
+            <button class="btn btn-danger"  type="submit">CREAR EVENTO</button>
+            <p>
+                
+            </p>
+             <p>
+                
+            </p>
+             
+        </div>    
         </form>
     </div>
 

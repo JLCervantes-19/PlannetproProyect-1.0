@@ -28,7 +28,14 @@
 
 -->
 </head>
-
+<style>
+    .dropdown-menu {
+    right: 0; /* Alinear el panel emergente con el borde derecho */
+    left: auto; /* Reiniciar el ajuste izquierdo */
+    max-width: 400px; /* Opcional: establecer un ancho máximo */
+    overflow: hidden; /* Opcional: ocultar el contenido que se desborde */
+}
+</style>
 <body>
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -54,92 +61,100 @@
 
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                PlannetPro
-            </a>
-
+        <div class="container d-flex justify-content-between align-items-center" style="width :100%">
             
-                </i>
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.jsp">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Galeria.jsp">Galeria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ProductosList.jsp">Productos</a>
-                        </li>
-                       <li class="nav-item">
-                            <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
-                        </li>  
-                    </ul>
+            <div class="row flex-grow-1">
+                <div class="col-12 col-lg-3">
+                    <a class="navbar-brand text-success logo h1 align-self-center" href="index.jsp">
+                    PlannetPro
+                    </a> 
                 </div>
-              <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
+                <div class="col-12 col-lg-8 mt-lg-3">
+                    <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                        <div class="flex-fill">
+                            <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto ms-left">
+                                <li class="nav-item ms-left">
+                                    <a class="nav-link" href="index.jsp">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
+                                </li>
+                                        <li class="nav-item">
+                                    <a class="nav-link" href="Galeria.jsp">Galeria</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ProductosList.jsp">Productos</a>
+                                </li>
+                               <li class="nav-item">
+                                    <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
+                                </li> 
+                              </ul>
+                            <p>
+                                
+                            </p> 
+                        </div>
 
-                <div class="btn-group">
-  <div class="dropdown">
-      <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
-        Cerrar Sesión
-      </button>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#"><%= Correo %></a>
-        <a class="dropdown-item" href="#"></a>
-           <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="index.html">Cerrar Sesion</a>
-      </div>
-    </div>
-</div>
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("navbarDropdown").addEventListener("click", function(event) {
-      if (event.target.classList.contains("dropdown-toggle")) {
-        var dropdownMenu = event.target.nextElementSibling;
-        dropdownMenu.classList.toggle("show");
-      }
-    });
+                            <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
+                            
+                        
+                    </div>  
+                </div>
+                <div class="d-flex col-12 col-lg-1  justify-content-between">
+                    
+                    <button class=" navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="mt-0 mt-lg-3">
+                        <div class="dropdown">
+                          <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" >
+                            Cerrar Sesión
+                          </button>
 
-    // Cerrar la lista desplegable cuando se hace clic fuera de ella
-    window.addEventListener("click", function(event) {
-      if (!event.target.matches(".dropdown-toggle")) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.remove("show");
-          }
-        }
-      }
-    });
-  });
-</script>
-                <div class="n<avbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                           
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"><%= Correo %></a>
+                            <a class="dropdown-item" href="#"></a>
+                               <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="AlertCierre.jsp">Cerrar Sesion</a>
+                          </div>
                         </div>
                     </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        
-                    </a>
-                    <!-- <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                    </a> --> 
-                </div>
-            </div>
+                    <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("navbarDropdown").addEventListener("click", function(event) {
+                  if (event.target.classList.contains("dropdown-toggle")) {
+                    var dropdownMenu = event.target.nextElementSibling;
+                    dropdownMenu.classList.toggle("show");
+                  }
+                });
 
+                // Cerrar la lista desplegable cuando se hace clic fuera de ella
+                window.addEventListener("click", function(event) {
+                  if (!event.target.matches(".dropdown-toggle")) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                      var openDropdown = dropdowns[i];
+                      if (openDropdown.classList.contains("show")) {
+                        openDropdown.classList.remove("show");
+                      }
+                    }
+                  }
+                });
+              });
+            </script>
+                </div>
+                
+                              
+                
+                
+            
+           
+                
+                               
+            </div>
+  
+            
+            
         </div>
     </nav>
     <!-- Close Header -->
@@ -477,19 +492,7 @@
                         </div>
                     </div>
                 </div>
-                <div div="row">
-                    <ul class="pagination pagination-lg justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
-                        </li>
-                    </ul>
-                </div>
+              
             </div>
 
         </div>
@@ -602,7 +605,7 @@
 
 
     <!-- Start Footer -->
-    <footer class="bg-dark" id="tempaltemo_footer">
+ <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
 
@@ -614,12 +617,10 @@
                             
                         </li>
                         <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            <a class="text-decoration-none" href="plannetproproyect@gmail.com">plannetproproyect@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -686,7 +687,7 @@
                     <div class="col-12">
                         <p class="text-left text-light">
                             Copyright &copy; 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com/page/1" target="_blank">PlannetPro</a>
+                            | Designed by <a rel="sponsored" href="https://templatemo.com/page/1" target="_blank">PlannetProTeam</a>
                         </p>
                     </div>
                 </div>

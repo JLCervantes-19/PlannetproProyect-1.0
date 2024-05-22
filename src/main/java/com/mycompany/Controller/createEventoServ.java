@@ -91,7 +91,7 @@ try (Connection con = conn.getConnection()){
            
         }
        
-       response.sendRedirect("index.jsp");
+       response.sendRedirect("AlertPlannetpro.jsp");
     }
 
     @Override

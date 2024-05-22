@@ -47,7 +47,8 @@ public class UsuarioPlannetPro extends HttpServlet {
             
             request.getSession().setAttribute ("ID", idString);
             request.getSession().setAttribute ("Correo", Correo);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            response.sendRedirect("index.jsp");
+            
            
         }else{
           

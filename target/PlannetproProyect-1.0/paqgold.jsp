@@ -1,6 +1,6 @@
 <%-- 
-    Document   : paqgold
-    Created on : 16 abr 2024, 0:34:48
+    Document   : paqbasic
+    Created on : 16 abr 2024, 7:26:03
     Author     : macuser
 --%>
 
@@ -25,123 +25,108 @@
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     
 </head>
-
+<style>
+    .dropdown-menu {
+    right: 0; /* Alinear el panel emergente con el borde derecho */
+    left: auto; /* Reiniciar el ajuste izquierdo */
+    max-width: 400px; /* Opcional: establecer un ancho máximo */
+    overflow: hidden; /* Opcional: ocultar el contenido que se desborde */
+}
+</style>
 <body>
     <!-- Start Top Nav -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+     <nav class="navbar navbar-expand-lg navbar-light shadow">
+       <div class="container d-flex justify-content-between align-items-center" style="width :100%">
+            
+            <div class="row flex-grow-1">
+                <div class="col-12 col-lg-3">
+                    <a class="navbar-brand text-success logo h1 align-self-center" href="index.jsp">
+                    PlannetPro
+                    </a> 
                 </div>
-                <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- Close Top Nav -->
-
-
-    <!-- Header -->
-   
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.jsp">
-                PlannetPro
-            </a>
-
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-           
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.jsp">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
-                        </li>
+                <div class="col-12 col-lg-8 mt-lg-3">
+                    <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                        <div class="flex-fill">
+                            <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto ms-left">
+                                <li class="nav-item ms-left">
+                                    <a class="nav-link" href="index.jsp">Inicio</a>
+                                </li>
                                 <li class="nav-item">
-                            <a class="nav-link" href="Galeria.jsp">Galeria</a>
-                        </li>
-                      <!-- <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li> -->
+                                    <a class="nav-link" href="Paquetes.jsp">Paquetes</a>
+                                </li>
+                                        <li class="nav-item">
+                                    <a class="nav-link" href="Galeria.jsp">Galeria</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ProductosList.jsp">Productos</a>
+                                </li>
+                               <li class="nav-item">
+                                    <a class="nav-link" href="ListaEventos.jsp">Mis Eventos</a>
+                                </li> 
+                              </ul>
+                        </div>
+
+                            <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
+                            
                         
-
-
-                    </ul>
+                    </div>  
                 </div>
-                 <div class="btn-group">
-  <div class="dropdown">
-      <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
-        Cerrar Sesión
-      </button>
-       <% String Correo = (String) request.getSession().getAttribute("Correo"); %>
-      <%
-    
-          %>
-      
-      
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#"><%= Correo %></a>
-        <a class="dropdown-item" href="#"></a>
-           <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="index.html">Cerrar Sesion</a>
-      </div>
-    </div>
-</div>
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("navbarDropdown").addEventListener("click", function(event) {
-      if (event.target.classList.contains("dropdown-toggle")) {
-        var dropdownMenu = event.target.nextElementSibling;
-        dropdownMenu.classList.toggle("show");
-      }
-    });
+                <div class="d-flex col-12 col-lg-1  justify-content-between">
+                    
+                    <button class=" navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="mt-0 mt-lg-3">
+                        <div class="dropdown">
+                          <button class="btn btn-danger dropdown-toggle" type="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" >
+                            Cerrar Sesión
+                          </button>
 
-    // Cerrar la lista desplegable cuando se hace clic fuera de ella
-    window.addEventListener("click", function(event) {
-      if (!event.target.matches(".dropdown-toggle")) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.remove("show");
-          }
-        }
-      }
-    });
-  });
-</script>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"><%= Correo %></a>
+                            <a class="dropdown-item" href="#"></a>
+                               <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="AlertCierre.jsp">Cerrar Sesion</a>
+                          </div>
                         </div>
                     </div>
+                    <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("navbarDropdown").addEventListener("click", function(event) {
+                  if (event.target.classList.contains("dropdown-toggle")) {
+                    var dropdownMenu = event.target.nextElementSibling;
+                    dropdownMenu.classList.toggle("show");
+                  }
+                });
 
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                       
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                    </a>
+                // Cerrar la lista desplegable cuando se hace clic fuera de ella
+                window.addEventListener("click", function(event) {
+                  if (!event.target.matches(".dropdown-toggle")) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                      var openDropdown = dropdowns[i];
+                      if (openDropdown.classList.contains("show")) {
+                        openDropdown.classList.remove("show");
+                      }
+                    }
+                  }
+                });
+              });
+            </script>
                 </div>
+                
+                              
+                
+                
+            
+           
+                
+                               
             </div>
-
+  
+            
+            
         </div>
     </nav>
     <!-- Close Header -->
@@ -185,163 +170,94 @@
     <!-- Close Banner -->
     
     <!-- Start Section -->
-         <section class="bg-light">
-        <div class="container py-5">
-            
+        <section class="bg-light">        
+        <div class="container py-5 mt-5">
+                <!-- Por aquí está el error, podría ser de col o que no existe(consultar sobre cuantos container deben existir) -->
             <div class="row text-center py-5">
-                <div class="col-lg-6 m-auto">
-                     <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                ¡Paquetes Para ti!
-            </a>
-                    
+                <div class="col-12 col-md-12 col-lg-6 m-auto">
+                    <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                        ¡Paquetes Para ti!
+                    </a>
+
                     <p>
                     <h5>¡Todo el mundo de la Organizacion de eventos en tus manos!</h5>
-                    
+
                 </div>
             </div>
-            <div class="card" style="width: 28rem; margin-left: 33%;">
-  <img class="card-img-top" src="./assets/img/Plannet_packca.png" alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
- </div>
+
+           <!-- Contenido-->
+
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card">
+                        <img class="card-img-top" src="./assets/img/Plannet_packca.png" alt="Card image cap">
+                        <div class="card-body">
+                            
+                        </div>
+                    </div>
+                </div>        
+            </div>    
+
+            <div class="row">
+                <div class="card style">
+                    <div class="card-body">
+                        <h5 class="card-title">Experimenta la Excelencia Absoluta con el Paquete Gold</h5>
+                        <p class="card-text">Para quienes no se conforman con nada menos que lo mejor, nuestro Paquete Gold ofrece una experiencia premium sin igual. Este paquete está diseñado para brindar lo último en lujo y rendimiento, incorporando todas las características del Paquete Max y mucho más. .</p>
+                        <h5 class="card-title">Incluye</h5>
+                        <!--<a href="#" class="btn btn-primary">Incluye</a>-->
+                    </div>
+                </div>
+                 
+            </div>
+            
+
+            <div class="row text-center my-5 py-3 border" >
+                <div class="col-12 col-md-12 col-lg-4 mb-4">
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="./assets/img/Cabeza movil NightSunspb423.png" alt="...">
+                        <div class="card-body">
+                        <h5>Cabeza Móvil 100w NightSun SPB423</h5>
+                        <p>Cabeza móvil de formato pequeño
+La cabeza móvil SPB423 cuenta con 6 LED de 15W RGBW 4 en 1, esta característica permite proyectar una gama casi infinita de colores, lo que es ideal para crear escenas luminosas con altos estándares.</p>
+                            <!--<a href="#" class="btn btn-primary">Ir</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4 mb-4">
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="./assets/img/Reloop-Ready-Controlador-Dj.png" alt="...">
+                        <div class="card-body">
+                        <h5>Reloop Ready Controlador Dj</h5>
+                        <p>Tan ligero como potente, tan compacto como versátil: el Reloop Ready equilibra la funcionalidad de primer nivel en un diseño práctico para que los DJs se desempeñen al más alto nivel mientras maximizan la portabilidad y minimizan el espacio.</p>
+                            <!--<a href="#" class="btn btn-primary">Ir</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4 mb-4">
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="./assets/img/BETA-THREE-Cabina.jpg" alt="...">
+                        <div class="card-body">
+                        <h5>BETA THREE VX12a CABINA</h5>
+                        <p>VX12a es un altavoz activo de rango completo de dos vías compuesto por un woofer LF de 12″ y un controlador de compresión HF de 1″ con diafragma de titanio. Sus características incluyen gran dinámica, alta sensibilidad, claro MF y HF con potente LF.</p>
+                            <!--<a href="#" class="btn btn-primary">Ir</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
            
-<!--             <div class="col-12 col-md-4 mb-4"  >
-                   
-                       <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-    <div>
-      <img src="./assets/img/2.png" class="card-img-top">
-    </div>
-</div>  Links 
-                    
-                        <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                <li></li>
-                           </ul>
-                        </div>
-                        
-                   
-                    </div>-->
-           <div class="container mt-4">
-    <div class="card style="style="margin-left: 56px;">
-        <div class="card-body">
-            <h5 class="card-title">Título de la Información</h5>
-            <p class="card-text">Aquí puedes escribir un párrafo o varias líneas de texto que presenten la información relevante que deseas destacar. Puede ser datos importantes, un resumen, o cualquier otra cosa que quieras comunicar.</p>
-            <a href="#" class="btn btn-primary">Más Detalles</a>
-        </div>
-    </div>
-</div>
-
-                            <!-- Segunda Fila 
-                                <div class="row">
-                                    <div class="col-12 col-md-6 mb-4">
-                                        <p class="h2 text-decoration-none text-dark">Imagen de este lado</p>
-                                    </div>
-                                    <div class="col-12 col-md-6 mb-4">
-                                        <p>Descripción de la imagen. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet. 
-                                       </p>
-                                    </div>
-                                </div>
-                            -->
-                               
-                    
-        
-              
-        
-                <!-- Fin d Paquete bacis-->
-                <!-- Paquete Max 
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="card h-100">
-                        <a href="">
-                            <img src="./assets/img/3.png" class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                              
-                           </ul>
-                            <h1> $00.000</h1>
-                            <a href="" class="h2 text-decoration-none text-dark">Orquestas</a>
-                            <p class="card-text">
-Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de músicos apasionados y dedicados que nos esforzamos por llevar la belleza y la emoción de la música clásica a audiencias de todas las edades y orígenes.                            </p>
-                            <p class="text-muted">Reviews (48)</p>
-                        </div>
+            <div class="sticky-top fixed-bottom d-flex justify-content-end">
+                <div class="row text-center py-3">
+                    <div class="col-12 col-lg-12 m-auto">
+                        <form id="miFormulario" action="create_Evento.jsp" method="post">
+                            <input type="hidden" id="seleccion" name="seleccion">
+                            <button type="submit" onclick="enviarSeleccion()" class="btn btn-success" >SOLICITAR</button>
+                        </form>
                     </div>
-                </div>
-                <!-- Fin d Paquete Max -->
-                <!-- Paquete Gold 
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="card h-100">
-                        <a href="">
-                            <img src="./assets/img/Plannet_packca.png" class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                               
-                           </ul>
-                            <h1> $00.000</h1>
-                           
-                            <a href="" class="h2 text-decoration-none text-dark">Entretenimiento</a>
-                            <p class="card-text">
-                                un equipo de bailarines apasionados y dedicados que amamos compartir nuestra pasión por el baile con el mundo. 
-                            </p>
-                            <p class="text-muted">Reviews (74)</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Fin d Paquete Gold 
+                </div>    
             </div>
+            
         </div>
--->
-<br>
-<div class="row" style="margin-left: 140px;">
-        <div class="col-md-4">
-            <div class="card d-inline-block" style="width: 18rem;">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Tarjeta 1</h5>
-                    <p class="card-text">Contenido de la tarjeta 1.</p>
-                    <a href="#" class="btn btn-primary">Ir</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card d-inline-block" style="width: 18rem;">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Tarjeta 2</h5>
-                    <p class="card-text">Contenido de la tarjeta 2.</p>
-                    <a href="#" class="btn btn-primary">Ir</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card d-inline-block" style="width: 18rem;">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Tarjeta 3</h5>
-                    <p class="card-text">Contenido de la tarjeta 3.</p>
-                    <a href="#" class="btn btn-primary">Ir</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    </section>
-    <!-- End Section -->
-
-    <!-- Start Brands -->
-    <section class="bg-light py-5">
-        <div class="container my-4">
-            <div class="row text-center py-3">
-                 <form id="miFormulario" action="create_Evento.jsp" method="post">
-                     <input type="hidden" id="seleccion" name="seleccion">
-                    <button type="submit" onclick="enviarSeleccion()" class="btn btn-outline-success" style="position: relative; width: 400px; margin-top:-55px;margin-left:4px; margin-bottom: 4%;">SOLICITAR</button>
-            </form>
-                <script>
+         <script>
     function enviarSeleccion() {
         // Aquí puedes obtener la selección del usuario, por ejemplo de un checkbox
         var seleccionUsuario = 3; // Esto es un ejemplo, debes obtener la selección del usuario según tu lógica
@@ -352,110 +268,23 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de 
         // Envía el formulario
         document.getElementById("miFormulario").submit();
     }
-</script>
-                <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Our Brands</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
-                    </p>
-                </div>
-                <div class="col-lg-9 m-auto tempaltemo-carousel">
-                    <div class="row d-flex flex-row">
-                        <!-- <div class="col-1 align-self-center">
-                            <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
-                                <i class="text-light fas fa-chevron-left"></i>
-                            </a>-->
-                       
-                        </div>
-                        <!--End Controls-->
-
-                        <!--Carousel Wrapper-->
-                        <div class="col">
-                            <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand" data-bs-ride="carousel">
-                                <!--Slides-->
-                                <div class="carousel-inner product-links-wap" role="listbox">
-
-                                    <!--First slide <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                    
-                                    <!--End First slide-->
-
-                                    <!--Second slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Second slide-->
-
-                                    <!--Third slide <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                    
-                                    <!--End Third slide-->
-
-                                </div>
-                                <!--End Slides-->
-                            </div>
-                        </div>
-                        <!--End Carousel Wrapper-->
-
-                        <!--<div class="col-1 align-self-center">
-                            <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
-                                <i class="text-light fas fa-chevron-right"></i>
-                            </a>
-                        </div>-->
-                        
-                        <!--End Controls-->
-                    </div>
-                </div>
-            </div>
-        </div>
+</script>   
     </section>
-    <!--End Brands-->
+    <!-- End Section -->
+
+    <!-- Start Brands
+    <section class="bg-light py-5">
+        <div class="container my-4">
+            <div class="row text-center py-3">
+                 
+               
+               
+    </section>
+    End Brands-->
 
 
     <!-- Start Footer -->
-    <footer class="bg-dark" id="tempaltemo_footer">
+ <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
 
@@ -467,12 +296,10 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de 
                             
                         </li>
                         <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            <a class="text-decoration-none" href="plannetproproyect@gmail.com">plannetproproyect@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -539,7 +366,7 @@ Es un honor estar aquí esta noche representando a OrquestaX. Somos un grupo de 
                     <div class="col-12">
                         <p class="text-left text-light">
                             Copyright &copy; 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com/page/1" target="_blank">PlannetPro</a>
+                            | Designed by <a rel="sponsored" href="https://templatemo.com/page/1" target="_blank">PlannetProTeam</a>
                         </p>
                     </div>
                 </div>
