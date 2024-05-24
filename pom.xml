@@ -14,9 +14,9 @@
 
     <dependencies>
         <dependency>
-    <groupId>jakarta.persistence</groupId>
-    <artifactId>jakarta.persistence-api</artifactId>
-    <version>3.0.0</version> <!-- Utiliza la versión más reciente -->
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>jakarta.platform</groupId>
@@ -60,20 +60,15 @@
             <version>2.7.12</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>jakarta.persistence</artifactId>
-            <version>2.2.3</version>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
         </dependency>
         <dependency>
-  <groupId>taglibs</groupId>
-  <artifactId>standard</artifactId>
-  <version>1.1.2</version>
-</dependency>
-<dependency>
-  <groupId>javax.servlet</groupId>
-  <artifactId>jstl</artifactId>
-  <version>1.2</version>
-</dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
@@ -94,12 +89,11 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
-            <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>2.0</version>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
@@ -115,7 +109,6 @@
             <groupId>com.malliina</groupId>
             <artifactId>util-auth_2.10</artifactId>
             <version>2.5.6</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
     
